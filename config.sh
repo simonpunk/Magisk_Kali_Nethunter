@@ -128,10 +128,10 @@ install_apks() {
   fi
   ui_print "- Installing Nethunter Terminal apk"
   pm install $INSTALLER/files/Term-nh.apk
-  if ls /data/data/com.offsec.nhvnc* 1> /dev/null 2>&1; then
-    ui_print "- Uninstalling Nethunter VNC"
-    pm uninstall com.offsec.nhvnc
+  if ls /data/data/com.iiordanov.freebVNC* 1> /dev/null 2>&1; then
+    ui_print "- Uninstalling bVNC"
+    pm uninstall com.iiordanov.freebVNC
   fi
-  ui_print "- Installing Nethunter VNC apk"
-  pm install $INSTALLER/files/VNC-nh.apk
+  ui_print "- Installing bVNC apk"
+  pm install $INSTALLER/files/bVNC.apk
 }
