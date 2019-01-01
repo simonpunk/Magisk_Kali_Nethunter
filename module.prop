@@ -1,7 +1,7 @@
 id=kali_nethunter
 name=Kali Nethunter
-version=v15.00.2
-versionCode=15002
+version=v16.00.0
+versionCode=16000
 author=atarii
-description=Kali Nethunter for Magisk
+description=Kali Nethunter for Magisk, modded by simonpunk2013@xda
 minMagisk=1500

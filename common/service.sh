@@ -12,7 +12,6 @@ ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_init $MODDIR/system
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_login $MODDIR/system/bin/bootkali_login
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_bash $MODDIR/system/bin/bootkali_bash
 ln -s /data/data/com.offsec.nethunter/files/scripts/killkali $MODDIR/system/bin/killkali
-ln -s /data/data/com.offsec.nethunter/files/scripts/usb_army $MODDIR/system/bin/usb_army 
 
 for i in `find /data/data/com.offsec.nethunter/files/etc/init.d/*`; do
 	log -p i -t "Nethunter Boot" "Executing $i"
@@ -28,6 +27,6 @@ if [ -e /data/local/userinit.sh ]; then
 fi
 
 if [ -d /data/local/userinit.d ]; then
-	logwrapper /system/xbin/busybox_nh run-parts /data/local/userinit.d
+	logwrapper /data/adb/magisk/busybox run-parts /data/local/userinit.d
 	#setprop cm.userinit.active 1
 fi
