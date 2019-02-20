@@ -6,17 +6,25 @@ MODDIR=${0%/*}
 # This script will be executed in late_start service mode
 # More info in the main Magisk thread
 
-log -p i -t userinit "Symlinking Kali boot scripts"
+log -t userinit "Symlinking Kali boot scripts"
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali $MODDIR/system/bin/bootkali
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_init $MODDIR/system/bin/bootkali_init
+ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_env $MODDIR/system/bin/bootkali_env
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_login $MODDIR/system/bin/bootkali_login
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_bash $MODDIR/system/bin/bootkali_bash
 ln -s /data/data/com.offsec.nethunter/files/scripts/killkali $MODDIR/system/bin/killkali
 
-for i in `find /data/data/com.offsec.nethunter/files/etc/init.d/*`; do
-	log -p i -t "Nethunter Boot" "Executing $i"
-	su -c $i
+log -t userinit "Symlinking busybox applets"
+
+/sbin/.magisk/mirror/bin/busybox ln -sf /sbin/.magisk/mirror/bin/busybox /system/bin/busybox
+for applet in `/sbin/.magisk/mirror/bin/busybox --list`; do
+	/sbin/.magisk/mirror/bin/busybox ln -sf /sbin/.magisk/mirror/bin/busybox /system/bin/$applet
 done
+
+#for i in `find /data/data/com.offsec.nethunter/files/etc/init.d/*`; do
+#	log -p i -t "Nethunter Boot" "Executing $i"
+#	su -c $i
+#done
 
 #!/system/bin/sh
 # call userinit.sh and/or userinit.d/* scripts if present in /data/local
