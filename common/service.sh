@@ -12,6 +12,8 @@ ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_init $MODDIR/system
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_env $MODDIR/system/bin/bootkali_env
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_login $MODDIR/system/bin/bootkali_login
 ln -s /data/data/com.offsec.nethunter/files/scripts/bootkali_bash $MODDIR/system/bin/bootkali_bash
+ln -s /data/data/com.offsec.nethunter/files/scripts/chroot_backup $MODDIR/system/bin/chroot_backup
+ln -s /data/data/com.offsec.nethunter/files/scripts/chroot_restore $MODDIR/system/bin/chroot_restore
 ln -s /data/data/com.offsec.nethunter/files/scripts/killkali $MODDIR/system/bin/killkali
 
 log -t userinit "Symlinking busybox applets"
